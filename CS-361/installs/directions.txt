@@ -1,0 +1,10 @@
+Go Website: https://go.dev/doc/install 
+Docker Website: https://docs.docker.com/engine/install/ 
+
+Install Go Video Windows: https://www.youtube.com/watch?v=DFiXJKIF2ss 
+Install Go Video Mac: https://www.youtube.com/watch?v=fPjcp48dpPM 
+Install Go Video Linux: https://www.youtube.com/watch?v=LLqUFxAPsvs 
+
+Install Docker Video Windows: https://www.youtube.com/watch?v=WDEdRmTCSs8 
+Install Docker Video Mac: https://www.youtube.com/watch?v=-EXlfSsP49A 
+Install Docker Video Linux: https://www.youtube.com/watch?v=5_EA3rBCXmU 
