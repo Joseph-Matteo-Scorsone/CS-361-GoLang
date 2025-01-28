@@ -166,7 +166,7 @@ func main() {
 	hiddenSize := 5
 	outputSize := 1
 	numHiddenLayers := 4
-	learningRate := 0.02
+	learningRate := 0.001
 	epochs := 1000
 	sinLength := 1000
 
