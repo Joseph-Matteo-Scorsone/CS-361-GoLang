@@ -66,7 +66,7 @@ func main() {
 		trainRatio      = 0.8
 		hiddenSize      = 32
 		numHiddenLayers = 3
-		learningRate    = 0.01
+		learningRate    = 0.001
 		epochs          = 1000
 		batchSize       = 10
 	)
