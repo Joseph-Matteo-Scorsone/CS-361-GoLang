@@ -41,7 +41,7 @@ func main() {
 	hiddenSize := 4
 	outputSize := 1
 	numHiddenLayers := 3
-	learningRate := 0.02
+	learningRate := 0.001
 
 	// getting it as a useable variable
 	nn := NeuralNetwork{inputSize,
