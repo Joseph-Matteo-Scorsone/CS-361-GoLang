@@ -72,7 +72,7 @@ func main() {
 	)
 
 	// Load data
-	ticker := "CRWD"
+	ticker := "AVGO"
 	path := fmt.Sprintf("../CSVs/%s_features.csv", ticker)
 	csvData, err := utils.LoadCSVData(path)
 	if err != nil {
@@ -184,37 +184,6 @@ func main() {
 	fmt.Printf("Next Day LGR Prediction: %.6f\n", unscaledPrediction)
 
 	fmt.Printf("Training Time: %.2f seconds\n", time.Since(start).Seconds())
-
-	// Load new data file for prediction
-	newFilePath := fmt.Sprintf("../CSVs/%s_trade.csv", ticker)
-	newCsvData, err := utils.LoadCSVData(newFilePath)
-	if err != nil {
-		log.Fatalf("Error loading new data file: %v\n", err)
-	}
-
-	// Scale the new data using the existing scaler
-	newScaledData := scaler.ScaleData(newCsvData)
-
-	// Ensure there are enough data points for prediction
-	if len(newScaledData) < windowSize {
-		log.Fatalf("Not enough data points in new file for prediction. Require at least %d data points.\n", windowSize)
-	}
-
-	// Extract the last windowSize entries for prediction
-	lastWindow = make([]float64, 0, windowSize*len(newCsvData[0]))
-	for i := len(newScaledData) - windowSize; i < len(newScaledData); i++ {
-		lastWindow = append(lastWindow, newScaledData[i]...)
-	}
-
-	// Predict the next value
-	newPrediction, err := nn.Predict(lastWindow)
-	if err != nil {
-		log.Fatalf("Error predicting for new data: %v\n", err)
-	}
-
-	// Unscale the prediction
-	unscaledNewPrediction := scaler.UnscaleValue(newPrediction, 0)
-	fmt.Printf("Prediction for new data: %.6f\n", unscaledNewPrediction)
 
 }
 
