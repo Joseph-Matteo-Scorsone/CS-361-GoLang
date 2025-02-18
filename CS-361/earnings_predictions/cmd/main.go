@@ -173,7 +173,11 @@ func main() {
 	fmt.Printf("Average Error: %.6f\n", avgTestError)
 
 	// Make a prediction for the next day
-	lastWindow := testData.Features[len(testData.Features)-1]
+	lastWindow := make([]float64, 0, windowSize*len(scaledData[0]))
+	for i := len(scaledData) - windowSize; i < len(scaledData); i++ {
+		lastWindow = append(lastWindow, scaledData[i]...)
+	}
+
 	nextDayPrediction, err := nn.Predict(lastWindow)
 	if err != nil {
 		log.Fatal("Error predicting next day:", err)
